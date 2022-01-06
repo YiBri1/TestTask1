@@ -40,7 +40,7 @@ resource "aws_security_group" "web" {
 
 
 resource "aws_launch_configuration" "web" {
-  name    = "web"
+  name_prefix     = "web-"
   image_id        = data.aws_ami.latest_amazon_linux.id
   instance_type   = "t2.micro"
   security_groups = [aws_security_group.web.id]
