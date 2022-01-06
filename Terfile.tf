@@ -52,7 +52,7 @@ resource "aws_launch_configuration" "web" {
 }
 
 resource "aws_autoscaling_group" "web" {
-  name                 = "web"
+  name                 = "web-${aws_launch_configuration.web.name}"
   launch_configuration = aws_launch_configuration.web.name
   min_size             = 1
   max_size             = 1
