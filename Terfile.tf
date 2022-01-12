@@ -17,7 +17,6 @@ resource "aws_default_subnet" "default_az1" {
   availability_zone = data.aws_availability_zones.available.names[0]
 }
 
-#--------------------------------------------------------------
 resource "aws_security_group" "web" {
   name = "Dynamic Security Group"
 
@@ -88,8 +87,29 @@ resource "aws_elb" "web" {
 }
 
 
+//////////////////////////DNS_stuff
 
-#--------------------------------------------------
+
+
+resource "aws_route53_zone" "yibri" {
+  name = "yibri.xyz"
+}
+
+resource "aws_route53_record" "www" {
+  zone_id = aws_route53_zone.yibri.zone_id
+  name    = "www.yibri.xyz"
+  type    = "A"
+   alias {
+    name                   = aws_elb.web.dns_name
+    zone_id                = aws_elb.web.zone_id
+    evaluate_target_health = true
+  }
+}
+
+output "name_server"{
+  value=aws_route53_zone.yibri.name_servers
+}
+
 output "web_loadbalancer_url" {
   value = aws_elb.web.dns_name
 }
