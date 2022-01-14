@@ -12,7 +12,7 @@ cat <<EOF > /var/www/html/index.html
     <li><a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ" target = "_blank">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a></li>
     <li><a href = "https://github.com/YiBri1/TestTask1" target = "_blank">GitHub</a></li>
   </ul>
-  <font color="blue"><h3> Я здесь ищу только одного - покоя, умиротворения и
+  <font color="green"><h3> Я здесь ищу только одного - покоя, умиротворения и
 вот этой гармонии, от слияния с бесконечно вечным</font></h3>
 <br><p>
 <font color ="purple">От созерцания
